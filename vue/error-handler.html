@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue错误处理 | 大木的小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="我的博客小站、文章记录与分享">
+    
+    <link rel="preload" href="/assets/css/0.styles.3f566940.css" as="style"><link rel="preload" href="/assets/js/app.29f46ac9.js" as="script"><link rel="preload" href="/assets/js/2.0733e86e.js" as="script"><link rel="preload" href="/assets/js/40.8cbcc404.js" as="script"><link rel="prefetch" href="/assets/js/10.1183d602.js"><link rel="prefetch" href="/assets/js/11.969256f0.js"><link rel="prefetch" href="/assets/js/12.ec1fea87.js"><link rel="prefetch" href="/assets/js/13.e3c12f07.js"><link rel="prefetch" href="/assets/js/14.bcd06038.js"><link rel="prefetch" href="/assets/js/15.33ce878a.js"><link rel="prefetch" href="/assets/js/16.57ace624.js"><link rel="prefetch" href="/assets/js/17.a2fff443.js"><link rel="prefetch" href="/assets/js/18.22cc5a26.js"><link rel="prefetch" href="/assets/js/19.f42b8d6e.js"><link rel="prefetch" href="/assets/js/20.9ee7dc8d.js"><link rel="prefetch" href="/assets/js/21.7c658983.js"><link rel="prefetch" href="/assets/js/22.c8af7989.js"><link rel="prefetch" href="/assets/js/23.27c04aee.js"><link rel="prefetch" href="/assets/js/24.3f7dd285.js"><link rel="prefetch" href="/assets/js/25.ff9f3241.js"><link rel="prefetch" href="/assets/js/26.7945433b.js"><link rel="prefetch" href="/assets/js/27.9cf23c86.js"><link rel="prefetch" href="/assets/js/28.a66022be.js"><link rel="prefetch" href="/assets/js/29.a2e7c4d0.js"><link rel="prefetch" href="/assets/js/3.1896275f.js"><link rel="prefetch" href="/assets/js/30.7750483d.js"><link rel="prefetch" href="/assets/js/31.c1429a19.js"><link rel="prefetch" href="/assets/js/32.864ded65.js"><link rel="prefetch" href="/assets/js/33.0b6a2c79.js"><link rel="prefetch" href="/assets/js/34.64c1aa6c.js"><link rel="prefetch" href="/assets/js/35.fb6157de.js"><link rel="prefetch" href="/assets/js/36.8973aadb.js"><link rel="prefetch" href="/assets/js/37.5f9b1f42.js"><link rel="prefetch" href="/assets/js/38.a4259fd5.js"><link rel="prefetch" href="/assets/js/39.5d8c10ef.js"><link rel="prefetch" href="/assets/js/4.a1a0064b.js"><link rel="prefetch" href="/assets/js/41.ec12d61b.js"><link rel="prefetch" href="/assets/js/5.536ca2b6.js"><link rel="prefetch" href="/assets/js/6.6c5e5630.js"><link rel="prefetch" href="/assets/js/7.e542ad6f.js"><link rel="prefetch" href="/assets/js/8.b6fd5c33.js"><link rel="prefetch" href="/assets/js/9.ec474151.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3f566940.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">大木的小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  回到首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  REACT
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">
+  VUE
+</a></li><li class="dropdown-item"><!----> <a href="/others/" class="nav-link">
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/article/" class="nav-link">
+  读书笔记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  回到首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  REACT
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">
+  VUE
+</a></li><li class="dropdown-item"><!----> <a href="/others/" class="nav-link">
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/article/" class="nav-link">
+  读书笔记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vue/" aria-current="page" class="sidebar-link">Vue相关</a></li><li><a href="/vue/cli.html" class="sidebar-link">Vue-cli解读</a></li><li><a href="/vue/error-handler.html" aria-current="page" class="active sidebar-link">Vue错误处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/error-handler.html#先看错误" class="sidebar-link">先看错误</a></li><li class="sidebar-sub-header"><a href="/vue/error-handler.html#vue的错误原理" class="sidebar-link">Vue的错误原理</a></li><li class="sidebar-sub-header"><a href="/vue/error-handler.html#how-about-react-error" class="sidebar-link">How About React Error</a></li></ul></li><li><a href="/vue/Vue3.0.html" class="sidebar-link">Vue3.0</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue错误处理"><a href="#vue错误处理" class="header-anchor">#</a> Vue错误处理</h1> <h2 id="先看错误"><a href="#先看错误" class="header-anchor">#</a> 先看错误</h2> <div class="language- extra-class"><pre class="language-text"><code>// 错误1
+&lt;div id=&quot;app&quot;&gt;
+  hello, {{ name }}
+&lt;/div&gt;
+
+// 错误2
+const app = new Vue({
+  el: '#app',
+  computed: {
+    name() {
+      return x
+    }
+  }
+})
+
+// 错误3
+&lt;div id=&quot;app&quot;&gt;
+  &lt;button @click=&quot;doIt&quot;&gt;Do It&lt;/button&gt;
+&lt;/div&gt;
+
+const app = new Vue({
+  el: &quot;#app&quot;,
+  methods: {
+    doIt() {
+      return x;
+    }
+  }
+})
+</code></pre></div><h3 id="官方解释"><a href="#官方解释" class="header-anchor">#</a> 官方解释</h3> <blockquote><p>如果在组件渲染时出现运行错误，错误将会被传递至全局 Vue.config.errorHandler 配置函数。利用这个钩子函数来配合错误跟踪服务。</p></blockquote> <h3 id="技巧分类"><a href="#技巧分类" class="header-anchor">#</a> 技巧分类</h3> <h4 id="_1、errorhandler"><a href="#_1、errorhandler" class="header-anchor">#</a> 1、errorHandler</h4> <div class="language- extra-class"><pre class="language-text"><code>Vue.config.errorHanlder = function(err, vm, info) {
+  console.log(`Error: ${err.toString()}\n Info:${info}`)
+}
+
+// Error: ReferenceError: x is not define
+// Info: render / v-on handler
+</code></pre></div><h4 id="_2、warnhandler"><a href="#_2、warnhandler" class="header-anchor">#</a> 2、warnHandler</h4> <div class="language- extra-class"><pre class="language-text"><code>Vue.config.warnHandler = function(msg, vm, trace) {
+  console.log(`Warn: ${msg}\nTrace: ${trace}`)
+}
+
+// Warn: Property or method 'name' is not defined on the instance but referenced during render. Make sure that this property is reactive, either in the data option, or for class-based components, by initializing the property. See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.
+// Trace:
+
+(found in &lt;Root&gt;)
+</code></pre></div><h4 id="_3、rendererror-only-for-develop-environment-with-component"><a href="#_3、rendererror-only-for-develop-environment-with-component" class="header-anchor">#</a> 3、renderError - only for develop environment with component</h4> <div class="language- extra-class"><pre class="language-text"><code>const app = new Vue({
+  el: &quot;#app&quot;,
+  renderError(h, err) {
+    return h(&quot;pre&quot;, {style: {color: &quot;red&quot;}}, err.stack)
+  }
+})
+</code></pre></div><h4 id="_4、errorcaptured"><a href="#_4、errorcaptured" class="header-anchor">#</a> 4、errorCaptured</h4> <blockquote><p>捕获一个来自子孙组件的错误信息，返回错误对象，发送错误组件实例和错误信息来源字符串。可以返回false阻止该错误继续向上传播</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>new Vue({
+  ...
+  errorCaptured(err, vm, info) {
+    console.log(`Error: ${err.toString()}\ninfo: ${info}`);
+    return false;
+  }
+})
+
+// Error: TypeError: dontexist is not a function
+// info: render
+</code></pre></div><h4 id="_5、window-onerror"><a href="#_5、window-onerror" class="header-anchor">#</a> 5、window.onerror</h4> <div class="language- extra-class"><pre class="language-text"><code>window.onerror = function(message, source, line, column, error) {
+  // msg of error
+}
+</code></pre></div><p>优先级方面：errorHandler高于onerror</p> <p>彩蛋：</p> <ul><li>window.onerror = window.close</li> <li>Fundebug ( https://www.fundebug.com/ )</li> <li>Sentry ( https://sentry.io/welcome/ )</li></ul> <h2 id="vue的错误原理"><a href="#vue的错误原理" class="header-anchor">#</a> Vue的错误原理</h2> <div class="language- extra-class"><pre class="language-text"><code>export function handleError (err: Error, vm: any, info: string) {
+  if (vm) {
+    let cur = vm
+    while ((cur = cur.$parent)) {
+      const hooks = cur.$options.errorCaptured
+      if (hooks) {
+        for (let i = 0; i &lt; hooks.length; i++) {
+          try {
+            const capture = hooks[i].call(cur, err, vm, info) === false
+            if (capture) return
+          } catch (e) {
+            globalHandleError(e, cur, 'errorCaptured hook')
+          }
+        }
+      }
+    }
+  }
+  globalHandleError(err, vm, info)
+}
+
+function globalHandleError (err, vm, info) {
+  if (config.errorHandler) {
+    try {
+      return config.errorHandler.call(null, err, vm, info)
+    } catch (e) {
+      logError(e, null, 'config.errorHandler')
+    }
+  }
+  logError(err, vm, info)
+}
+
+function logError (err, vm, info) {
+  if (process.env.NODE_ENV !== 'production') {
+    warn(`Error in ${info}: &quot;${err.toString()}&quot;`, vm)
+  }
+  /* istanbul ignore else */
+  if (inBrowser &amp;&amp; typeof console !== 'undefined') {
+    console.error(err)
+  } else {
+    throw err
+  }
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>try {
+  ...
+} catch (error) {
+  handleError(error, vm, 'msg msg')
+}
+</code></pre></div><p>可以看到 errorCaptured 和 errorHandler 的触发时机都是相同的，不同的是 errorCaptured 发生在前，且如果某个组件的 errorCaptured 方法返回了 false，那么这个异常信息不会再向上冒泡也不会再调用 errorHandler 方法。</p> <h2 id="how-about-react-error"><a href="#how-about-react-error" class="header-anchor">#</a> How About React Error</h2> <h3 id="errorboundary"><a href="#errorboundary" class="header-anchor">#</a> ErrorBoundary</h3> <p>自 React 16 起，任何未被错误边界捕获的错误将会导致整个 React 组件树被卸载。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue/cli.html" class="prev">
+        Vue-cli解读
+      </a></span> <span class="next"><a href="/vue/Vue3.0.html">
+        Vue3.0
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.29f46ac9.js" defer></script><script src="/assets/js/2.0733e86e.js" defer></script><script src="/assets/js/40.8cbcc404.js" defer></script>
+  </body>
+</html>

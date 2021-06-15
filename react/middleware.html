@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>redux异步数据流 | 大木的小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="我的博客小站、文章记录与分享">
+    
+    <link rel="preload" href="/assets/css/0.styles.3f566940.css" as="style"><link rel="preload" href="/assets/js/app.29f46ac9.js" as="script"><link rel="preload" href="/assets/js/2.0733e86e.js" as="script"><link rel="preload" href="/assets/js/33.0b6a2c79.js" as="script"><link rel="prefetch" href="/assets/js/10.1183d602.js"><link rel="prefetch" href="/assets/js/11.969256f0.js"><link rel="prefetch" href="/assets/js/12.ec1fea87.js"><link rel="prefetch" href="/assets/js/13.e3c12f07.js"><link rel="prefetch" href="/assets/js/14.bcd06038.js"><link rel="prefetch" href="/assets/js/15.33ce878a.js"><link rel="prefetch" href="/assets/js/16.57ace624.js"><link rel="prefetch" href="/assets/js/17.a2fff443.js"><link rel="prefetch" href="/assets/js/18.22cc5a26.js"><link rel="prefetch" href="/assets/js/19.f42b8d6e.js"><link rel="prefetch" href="/assets/js/20.9ee7dc8d.js"><link rel="prefetch" href="/assets/js/21.7c658983.js"><link rel="prefetch" href="/assets/js/22.c8af7989.js"><link rel="prefetch" href="/assets/js/23.27c04aee.js"><link rel="prefetch" href="/assets/js/24.3f7dd285.js"><link rel="prefetch" href="/assets/js/25.ff9f3241.js"><link rel="prefetch" href="/assets/js/26.7945433b.js"><link rel="prefetch" href="/assets/js/27.9cf23c86.js"><link rel="prefetch" href="/assets/js/28.a66022be.js"><link rel="prefetch" href="/assets/js/29.a2e7c4d0.js"><link rel="prefetch" href="/assets/js/3.1896275f.js"><link rel="prefetch" href="/assets/js/30.7750483d.js"><link rel="prefetch" href="/assets/js/31.c1429a19.js"><link rel="prefetch" href="/assets/js/32.864ded65.js"><link rel="prefetch" href="/assets/js/34.64c1aa6c.js"><link rel="prefetch" href="/assets/js/35.fb6157de.js"><link rel="prefetch" href="/assets/js/36.8973aadb.js"><link rel="prefetch" href="/assets/js/37.5f9b1f42.js"><link rel="prefetch" href="/assets/js/38.a4259fd5.js"><link rel="prefetch" href="/assets/js/39.5d8c10ef.js"><link rel="prefetch" href="/assets/js/4.a1a0064b.js"><link rel="prefetch" href="/assets/js/40.8cbcc404.js"><link rel="prefetch" href="/assets/js/41.ec12d61b.js"><link rel="prefetch" href="/assets/js/5.536ca2b6.js"><link rel="prefetch" href="/assets/js/6.6c5e5630.js"><link rel="prefetch" href="/assets/js/7.e542ad6f.js"><link rel="prefetch" href="/assets/js/8.b6fd5c33.js"><link rel="prefetch" href="/assets/js/9.ec474151.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3f566940.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">大木的小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  回到首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link router-link-active">
+  REACT
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  VUE
+</a></li><li class="dropdown-item"><!----> <a href="/others/" class="nav-link">
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/article/" class="nav-link">
+  读书笔记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  回到首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/engineering/" class="nav-link">
+  工程化
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link router-link-active">
+  REACT
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  VUE
+</a></li><li class="dropdown-item"><!----> <a href="/others/" class="nav-link">
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/article/" class="nav-link">
+  读书笔记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/react/" aria-current="page" class="sidebar-link">React</a></li><li><a href="/react/base.html" class="sidebar-link">组件</a></li><li><a href="/react/hooks.html" class="sidebar-link">Hooks下的状态管理迁移</a></li><li><a href="/react/middleware.html" aria-current="page" class="active sidebar-link">redux异步数据流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/react/middleware.html#举个例子" class="sidebar-link">举个例子</a></li></ul></li><li><a href="/react/mobx.html" class="sidebar-link">Mobx</a></li><li><a href="/react/react-router.html" class="sidebar-link">react-router</a></li><li><a href="/react/redux.html" class="sidebar-link">redux</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redux异步数据流"><a href="#redux异步数据流" class="header-anchor">#</a> redux异步数据流</h1> <p>createStore支持的是同步数据流，但是可以通过middleware来增加createStore的能力，实现异步数据流。</p> <p>支持异步的middleware都包装了store的dispatch方法，依次来实现dispatch一些除了action之外的其他内容。</p> <p>提示：middleware链中的最后一个middleware执行dispatch的时候，action必须是一个普通对象。（同步式的redux数据流）</p> <h1 id="redux-middleware"><a href="#redux-middleware" class="header-anchor">#</a> Redux Middleware</h1> <blockquote><p>它提供的是位于action被发起之后，到达reducer之前的扩展点</p></blockquote> <p>这个阶段可以做什么？</p> <p>日志创建、创建崩溃报告、调用异步接口或者路由等。</p> <p>那这个中间件的思维如何生成？可以自定义dispatch能力</p> <p>## 首先我们把redux流程化</p> <p><img src="https://user-gold-cdn.xitu.io/2018/7/31/164edab5e41258c1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="alt text" title="redux flow"></p> <p>核心部分就是在从action到reducer的过程中，那怎么处理呢？</p> <p>以添加日志为例子</p> <p>1、首先我们想在dispatch的前后打上日志，我们可以这么写</p> <div class="language- extra-class"><pre class="language-text"><code>console.log('dispatching', action)
+store.dispatch(action)
+console.log('next state', store.getState())
+</code></pre></div><p>前面说过了我们可以针对dispatch进行扩展对吧，那么我们可以把上面的代码封装成一个函数同时取代dispatch本身</p> <div class="language- extra-class"><pre class="language-text"><code>store.dispatch = (action) =&gt; {
+  console.log('dispatching', action)
+  let result = store.dispatch(action)
+  console.log('next state', store.getState())
+  return result
+}
+</code></pre></div><p>此时我们再次使用dispatch的时候自然会打出相应的log。那我们再将上面的方法扩展完善一下，我们不重写dispatch方法，而是将新的dispatch通过函数返回</p> <div class="language- extra-class"><pre class="language-text"><code>function logger(store) {
+  let next = store.dispatch
+
+  return function dispatchAndLog(action) {
+    console.log('dispatching', action)
+    let result = store.dispatch(action)
+    console.log('next state', store.getState())
+    return result
+  }
+}
+</code></pre></div><p>这样做有什么好处呢？</p> <p>将middleware串联起来的必要性：后面直接调用，其次后一个dispatch都可以操控前一个包装过的dispatch（所以有什么好处？？？？）。</p> <p>链式middleware应该长这样吧</p> <div class="language- extra-class"><pre class="language-text"><code>function logger(store) {
+  return function wrapDispatchAndLog(next) {
+    return function dispatchAndLog(action) {
+      console.log('dispatching', action)
+      let result = store.dispatch(action)
+      console.log('next state', store.getState())
+      return result
+    }
+  }
+}
+</code></pre></div><p>next就是上一个middleware的dispatch</p> <p>接下来看看集合这些middleware的方法是怎么实现的——MiddleWare</p> <div class="language- extra-class"><pre class="language-text"><code>function applyMiddleware(store, middlewares) {
+  middlewares = middlewares.slice()
+  middlewares.reverse()
+  let dispatch = store.dispatch
+  middlewares.forEach(middleware =&gt; (dispatch = middleware(store)(dispatch)))
+  return Object.assign({}, store, {dispatch})
+}
+</code></pre></div><p>而其实redux本身实现了applyMiddleware方法，上述方法跟redux本身的实现非常接近了。有一些差别说明如下：</p> <ul><li>这个方法只是暴露了store API的一个子集给middleware：dispatch和getState</li> <li>确保所有的dispatch都经过middleware链</li> <li>为了保证只应用middleware一次，方法作用在createStore上面，而不是store本身。</li></ul> <h2 id="举个例子"><a href="#举个例子" class="header-anchor">#</a> 举个例子</h2> <p>我们很简单引用两个logger作用在middleware链上，会是怎么执行的呢？或许这里可以找到上面的设计思想。</p> <div class="language- extra-class"><pre class="language-text"><code>// logger
+const logger = store =&gt; next =&gt; action =&gt; {
+  console.log('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  return result
+}
+
+// logger2
+const logger2 = store =&gt; next =&gt; action =&gt; {
+  console.log('dispatching 2', action)
+  let result = next(action)
+  console.log('next state 2', store.getState())
+  return result
+}
+
+// 创建store并引用Middleware
+createStore(
+  reducer,
+  applyMiddleware(logger2, logger)
+)
+
+// 执行结果
+// dispatching 2
+// dispatching
+// next state
+// next state 2
+
+// 同理我们换一个引用顺序
+applyMiddleware(logger, logger2)
+
+// 执行结果
+// dispatching
+// dispatching 2
+// next state 2
+// next state
+</code></pre></div><p>上述结果表明了什么？
+
+满足了洋葱模型，让我们的dispatch执行middleware的顺序是从前到后，而后再从后回到前面。</p> <p>这里解释了reverse()。</p> <p>这篇文章不错
+https://github.com/fi3ework/blog/issues/14</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/react/hooks.html" class="prev">
+        Hooks下的状态管理迁移
+      </a></span> <span class="next"><a href="/react/mobx.html">
+        Mobx
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.29f46ac9.js" defer></script><script src="/assets/js/2.0733e86e.js" defer></script><script src="/assets/js/33.0b6a2c79.js" defer></script>
+  </body>
+</html>
