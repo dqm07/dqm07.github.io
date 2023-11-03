@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7eb8a6ba","path":"/docs_old/node/","title":"Node","lang":"en-US","frontmatter":{},"headers":[],"git":{"createdTime":1698925551000,"updatedTime":1698925551000,"contributors":[{"name":"dongqingming","email":"dongqingming@58.com","commits":1}]},"filePathRelative":"docs_old/node/README.md"}');export{e as data};

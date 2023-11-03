@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-4ba1e3c8","path":"/docs_old/others/npm-node.html","title":"npm","lang":"en-US","frontmatter":{},"headers":[],"git":{"createdTime":1698925551000,"updatedTime":1698925551000,"contributors":[{"name":"dongqingming","email":"dongqingming@58.com","commits":1}]},"filePathRelative":"docs_old/others/npm-node.md"}');export{e as data};

@@ -1,0 +1,1 @@
+import{_ as r,o as t,c as a,b as e,d as c}from"./app-4f7908e3.js";const o={},s=e("h1",{id:"react-router",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#react-router","aria-hidden":"true"},"#"),c(" react-router")],-1),n=[s];function _(d,i){return t(),a("div",null,n)}const h=r(o,[["render",_],["__file","react-router.html.vue"]]);export{h as default};
